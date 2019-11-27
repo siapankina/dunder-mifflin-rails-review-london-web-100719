@@ -1,5 +1,5 @@
-<% @dogs.each do |d|%>
-<p><%=link_to d.name, dog_path(d)%> 
-<%=link_to d.breed, dog_path(d)%>
-<%=link_to d.age, dog_path(d)%></>
+<% @dogs.each do |d|%><br>
+Dog name: <%=link_to d.name, dog_path(d)%> <br>
+Breed: <%=link_to d.breed, dog_path(d)%><br>
+Age: <%=link_to d.age, dog_path(d)%><br>
 <%end %>

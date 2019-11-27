@@ -5,8 +5,25 @@ class EmployeesController < ApplicationController
 
   def show
     @employee = Employee.find(params[:id])
-    @the_dog=Dog.all.find {|d|
-    d.id==@employee.dog_id}
-    
+    @the_dog = Dog.all.find { |d|
+      d.id == @employee.dog_id
+    }
+  end
+
+  def new
+    @employee = Employee.new(params[:id])
+  end
+
+  def create
+    employee = Employee.create(employee_params)
+    if employee.save
+      redirect_to employee
+    else
+      redirect_to new_employee_path
+    end
+  end
+
+  def employee_params
+    params.require(:employee).permit(:first_name, :last_name, :alias, :title, :office, :dog_id)
   end
 end
