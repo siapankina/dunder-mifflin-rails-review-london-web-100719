@@ -15,12 +15,27 @@ class EmployeesController < ApplicationController
   end
 
   def create
-    employee = Employee.new(employee_params)
-    byebug
-    if employee.save
-      redirect_to employee
+    @employee = Employee.new(employee_params)
+
+    if @employee.valid?
+      @employee.save
+      redirect_to employee_path(@employee)
     else
-      render new_employee_path
+      render :new
+    end
+  end
+
+  def edit
+    @employee = Employee.find(params[:id])
+  end
+
+  def update
+    @employee = Employee.find(params[:id])
+
+    if @employee.update(employee_params)
+      redirect_to employee_path(@employee)
+    else
+      render :edit
     end
   end
 
