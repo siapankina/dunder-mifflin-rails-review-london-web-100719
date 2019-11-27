@@ -1,6 +1,6 @@
 <p>Dog name: <%=@dog.name%></p>
 <p>Dog breed: <%=@dog.breed%></p>
 <p>Dog age: <%=@dog.age%></p>
-<p>List of employees: <%@employees.each do |e|%></p>
-<p><%=e.to_s%></p>
+<p>List of employees: <%@dog.employees.each do |e|%></p>
+<p><%= link_to e.full_name, employee_path(e)%></p>
 <%end %>

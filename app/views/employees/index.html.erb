@@ -1,3 +1,6 @@
 <% @employees.each do |e|%>
-<p><%=link_to e.to_s, employee_path(e)%> 
+<p><%=link_to e.full_name, employee_path(e)%> 
 <%end %>
+
+<hr>
+<%= link_to 'new', new_employee_path %>

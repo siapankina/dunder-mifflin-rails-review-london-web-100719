@@ -11,15 +11,16 @@ class EmployeesController < ApplicationController
   end
 
   def new
-    @employee = Employee.new(params[:id])
+    @employee = Employee.new
   end
 
   def create
-    employee = Employee.create(employee_params)
+    employee = Employee.new(employee_params)
+    byebug
     if employee.save
       redirect_to employee
     else
-      redirect_to new_employee_path
+      render new_employee_path
     end
   end
 

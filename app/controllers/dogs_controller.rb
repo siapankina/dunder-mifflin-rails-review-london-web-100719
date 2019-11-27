@@ -5,8 +5,6 @@ class DogsController < ApplicationController
 
   def show
     @dog = Dog.find(params[:id])
-    @employees = Employee.all.select { |e|
-      e.dog_id == @dog.id
-    }
+   
   end
 end
